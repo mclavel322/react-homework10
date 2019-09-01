@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Practice</title>
+  <script src="https://unpkg.com/react@16.8.4/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <!--
+    INSTRUCTIONS:
+
+    Create two new button tags. When clicked, the first one should decrease the count by one, 
+    and the second should reset the count to zero.
+
+  -->
+  <script type="text/babel">
+    class Counter extends React.Component {
+
+      state = { count: 0 }
+
+      incrementCount = () => {
+        this.setState({ count: ++ this.state.count })
+      }
+      decreaseCount = () => {
+        this.setState({ count: -- this.state.count })
+      }
+      resetCount = () => {
+        this.setState({ count: 0 })
+      }
+
+      render(){
+        return(
+          <div>
+            <p>You clicked {this.state.count} times</p>
+            <button onClick={this.incrementCount}>
+            Add 1
+            </button>
+
+            {/* your code goes below this line... */}
+            <button onClick={this.decreaseCount}>
+            Decrease 1
+            </button>
+
+            <button onClick={this.resetCount}>
+            Reset 
+            </button>
+
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<Counter />, document.getElementById('root'))
+  </script>
+</body>
+</html>
